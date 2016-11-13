@@ -1,2 +1,33 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<form>
+    <a href="#" id="create-new-note">Create new Note</a>
+    <button type="submit" id="style-switcher">Switch style</button>
+
+    <button type="submit" id="by-finish-date">By finish Date</button>
+    <button type="submit" id="by-created-date">By created Date</button>
+    <button type="submit" id="by-importance">By Importance</button>
+
+    <button type="submit" id="show-finished">Show finished</button>
+</form>
+
+<ul>
+    <li>
+        <p class="due"></p>
+        <p class="title">Einkaufen</p>
+        <p class="importance">*****</p>
+
+        <label><input type="checkbox" disabled checked class="finished">Finished</label>
+        <textarea disabled class="description">Pizza
+Schuhe
+Suesses</textarea>
+        <a href="#" class="edit">Edit</a>
+    </li>
+    <li>
+        <p class="due">in a month</p>
+        <p class="title">Geburt von Sarah</p>
+        <p class="importance">***</p>
+
+        <label><input type="checkbox" disabled class="finished">Finished</label>
+        <textarea disabled class="description">Anrufen</textarea>
+        <a href="#" class="edit">Edit</a>
+    </li>
+</ul>
