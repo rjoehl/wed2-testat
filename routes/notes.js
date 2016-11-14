@@ -14,15 +14,15 @@ router.get('/', function (req, res, next) {
                 title: "Einkaufen",
                 importanceStars: "*****",
                 finishedChecked: "checked",
-                description: "Pizza\nSchuhe\nSuesses",
+                description: "Pizza\nSchuhe\nSuesses"
             }, {
                 dueSentence: "in a month",
                 title: "Geburt von Sarah",
                 importanceStars: "***",
                 finishedChecked: "",
-                description: "Anrufen",
-            },
-        ],
+                description: "Anrufen"
+            }
+        ]
     });
 });
 
