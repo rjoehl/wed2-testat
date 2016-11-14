@@ -13,28 +13,17 @@
 </form>
 
 <ul class="boxed_notes">
-    <li>
-        <div class="note_box">
-            <p class="due"></p>
-            <p class="title">Einkaufen</p>
-            <p class="importance">*****</p>
+    {{#each notes}}
+        <li>
+            <div class="note_box">
+                <p class="due">{{dueSentence}}</p>
+                <p class="title">{{title}}</p>
+                <p class="importance">{{importanceStars}}</p>
 
-            <label><input type="checkbox" disabled checked class="finished">Finished</label>
-            <textarea disabled class="description">Pizza
-Schuhe
-Suesses</textarea>
-            <a href="/note-form" class="edit">Edit</a>
-        </div>
-    </li>
-    <li>
-        <div class="note_box">
-            <p class="due">in a month</p>
-            <p class="title">Geburt von Sarah</p>
-            <p class="importance">***</p>
-
-            <label><input type="checkbox" disabled class="finished">Finished</label>
-            <textarea disabled class="description">Anrufen</textarea>
-            <a href="/note-form" class="edit">Edit</a>
-        </div>
-    </li>
+                <label><input type="checkbox" disabled {{finishedChecked}} class="finished">Finished</label>
+                <textarea disabled class="description">{{description}}</textarea>
+                <a href="/note-form" class="edit">Edit</a>
+            </div>
+        </li>
+    {{/each}}
 </ul>
