@@ -8,6 +8,10 @@ a {
   color: #00B7FF;
 }
 
+ul{
+  list-style-type: none;
+}
+
 .box1{
   box-sizing: content-box;
   display: flex;
@@ -20,10 +24,10 @@ a {
   margin-bottom: 5px;
 }
 #create-new-note{
-
+  display: flex;
 }
 #style-switcher{
-
+  display: flex;
 }
 
 .box2{
@@ -38,14 +42,33 @@ a {
   margin-bottom: 5px;
 }
 #by-finish-date{
-
+  display: flex;
 }
 #by-created-date{
-
+  display: flex;
 }
 #by-importance{
-
+  display: flex;
 }
 #show-finished{
+  display: flex;
+}
+.boxed_notes{
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  padding: 5px;
+}
+.note_box{
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: gray;
+
+  padding: 2% 2% 2% 2%;
+  margin: 5px;
 
 }
