@@ -72,3 +72,9 @@ ul{
   margin: 5px;
 
 }
+.newnote_box{
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
