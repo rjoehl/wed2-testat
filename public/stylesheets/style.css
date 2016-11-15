@@ -5,54 +5,70 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: black;
+  text-decoration: none;
 }
 
 ul{
   list-style-type: none;
 }
 
+button, .button{
+  border: none;
+  width: 100%;
+  background-color: aliceblue;
+  margin: 0px;
+  padding: 10px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+
 .box1{
-  box-sizing: content-box;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: gray;
 
-  padding: 2% 2% 2% 2%;
   margin-bottom: 5px;
 }
-#create-new-note{
-  display: flex;
-}
-#style-switcher{
-  display: flex;
+#create-new-note, #style-switcher {
+  flex-basis: 16.67%;
 }
 
 .box2{
-  box-sizing: content-box;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   background-color: gray;
 
-  padding: 2% 2% 2% 2%;
   margin-bottom: 5px;
 }
-#by-finish-date{
-  display: flex;
+#by-finish-date, #by-created-date, #by-importance{
+  flex: 1;
+  flex-basis: 20%;
+  margin-right: 5px;
 }
-#by-created-date{
-  display: flex;
-}
-#by-importance{
-  display: flex;
-}
+
 #show-finished{
-  display: flex;
+  flex: 1;
+  flex-basis: 20%;
 }
+@media (max-width: 767px){
+  #by-finish-date{
+    margin-top: 1rem;
+  }
+  #by-finish-date, #by-created-date, #by-importance, #show-finished{
+    flex: 1;
+    flex-basis: 100%;
+    margin-bottom: 1rem;
+    margin-right: 0px;
+  }
+}
+
 .boxed_notes{
   box-sizing: content-box;
   display: flex;
@@ -62,7 +78,6 @@ ul{
   padding: 5px;
 }
 .note_box{
-  box-sizing: content-box;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -73,8 +88,26 @@ ul{
 
 }
 .newnote_box{
-  box-sizing: content-box;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+}
+
+#importance {
+  width: 100%;
+}
+
+#submit_buttons{
+  display: flex;
+  flex-direction: row;
+}
+
+#save {
+  flex: 1;
+  flex-basis: 25%;
+  margin-right: 5px;
+}
+#cancel {
+  flex: 1;
+  flex-basis: 25%;
 }
