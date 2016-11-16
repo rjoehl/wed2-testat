@@ -1,14 +1,16 @@
 <h1>Edit note</h1>
-<form class="newnote_box">
-    <label for="title">Title</label>
+<form>
+    <div class="newnote_box">
+    <label for="title" id="title_label">Title</label>
     <input type="text" id="title">
-    <label for="description">Description</label>
+    <label for="description" id="desc_label">Description</label>
     <input type="text" id="description">
-    <label for="importance">Importance</label>
+    <label for="importance" id="imp_label">Importance</label>
     <input type="range" id="importance" min="1" max="5">
-    <label for="due">Due</label>
+    <label for="due" id="due_label">Due</label>
     <input type="date" id="due">
-    <label><input type="checkbox" id="finished">Finished</label>
+    </div>
+    <label id="finished"><input type="checkbox" >Finished</label>
 
     <div id="submit_buttons">
     <button type="submit" id="save">Save</button>
