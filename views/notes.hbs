@@ -12,18 +12,27 @@
     </div>
 </form>
 
-<ul class="boxed_notes">
-    {{#each notes}}
-        <li>
-            <div class="note_box">
-                <p class="due">{{dueSentence}}</p>
-                <p class="title">{{title}}</p>
-                <p class="importance">{{importanceStars}}</p>
+{{#if notes}}
+    <ul class="boxed_notes">
+        {{#each notes}}
+            <li>
+                <div class="note_box">
+                    <p class="due">{{dueSentence}}</p>
+                    <p class="title">{{title}}</p>
+                    <p class="importance">{{importanceStars}}</p>
 
-                <label class="finished"><input type="checkbox" disabled {{finishedChecked}}>Finished</label>
-                <textarea disabled class="description">{{description}}</textarea>
-                <a href="/note-form" class="edit">Edit</a>
-            </div>
-        </li>
-    {{/each}}
-</ul>
+                    <label class="finished"><input type="checkbox" disabled {{finishedChecked}}>Finished</label>
+                    <textarea disabled class="description">{{description}}</textarea>
+                    <a href="/note-form" class="edit">Edit</a>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>No notes found.</p>
+    <p>Suggestions:</p>
+    <ul>
+        <li><p>Create a note by clicking on &quot;Create new note&quot;</p></li>
+        <li><p>Show already finished notes by clicking on &quot;Show finished&quot;</p></li>
+    </ul>
+{{/if}}
