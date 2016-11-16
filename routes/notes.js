@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 let isAlternativeStyle = false;
+let sort = {};
 let showFinished = false;
 
 const Params = {
     ALTERNATIVE_STYLE: 'alternative-style',
+    ORDER_BY: 'order-by',
     SHOW_FINISHED: 'show-finished'
 };
 
@@ -17,6 +19,19 @@ router.get('/', function (req, res, next) {
             isAlternativeStyle = true;
         } else if (value === 'false') {
             isAlternativeStyle = false;
+        }
+    }
+
+    if (req.query.hasOwnProperty(Params.ORDER_BY)) {
+        const value = req.query[Params.ORDER_BY];
+        const [attribute, order] = value.split('-');
+        if (attribute === 'finish' || attribute === 'created' || attribute === 'importance') {
+            if (order === 'asc' || order == 'desc') {
+                sort = {
+                    by: attribute,
+                    order: order
+                };
+            }
         }
     }
 
@@ -35,6 +50,20 @@ router.get('/', function (req, res, next) {
         alternativeStyle: {
             value: !isAlternativeStyle,
             class: isAlternativeStyle ? 'active' : ''
+        },
+        orderBy: {
+            finish: {
+                value: 'finish-' + (sort.order === 'asc' ? 'desc' : 'asc'),
+                class: sort.by === 'finish' ? 'active' : ''
+            },
+            created: {
+                value: 'created-' + (sort.order === 'asc' ? 'desc' : 'asc'),
+                class: sort.by === 'created' ? 'active' : ''
+            },
+            importance: {
+                value: 'importance-' + (sort.order === 'asc' ? 'desc' : 'asc'),
+                class: sort.by === 'importance' ? 'active' : ''
+            }
         },
         showFinished: {
             value: !showFinished,

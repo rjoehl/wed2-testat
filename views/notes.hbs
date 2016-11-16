@@ -4,9 +4,9 @@
         <button type="submit" name="alternative-style" value="{{alternativeStyle.value}}" id="style-switcher" class="{{alternativeStyle.class}}">Switch style</button>
     </div>
     <div class="box2">
-        <button type="submit" id="by-finish-date">By finish date</button>
-        <button type="submit" id="by-created-date">By created date</button>
-        <button type="submit" id="by-importance">By importance</button>
+        <button type="submit" name="order-by" value="{{orderBy.finish.value}}" id="by-finish-date" class="{{orderByImportance.class}}">By finish date</button>
+        <button type="submit" name="order-by" value="{{orderBy.created.value}}" id="by-created-date" class="{{orderByImportance.class}}">By created date</button>
+        <button type="submit" name="order-by" value="{{orderBy.importance.value}}" id="by-importance" class="{{orderByImportance.class}}">By importance</button>
 
         <button type="submit" name="show-finished" value="{{showFinished.value}}" id="show-finished" class="{{showFinished.class}}">{{showFinished.text}}</button>
     </div>
