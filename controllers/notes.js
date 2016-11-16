@@ -42,7 +42,7 @@ function notesController(req, res, next) {
 
     res.render('notes', {
         title: 'Notes',
-        style: isAlternativeStyle ? 'alternative' : '',
+        style: isAlternativeStyle ? 'alternative' : 'standard',
         alternativeStyle: {
             value: !isAlternativeStyle,
             class: isAlternativeStyle ? 'active' : ''
