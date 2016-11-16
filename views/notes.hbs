@@ -1,6 +1,6 @@
 <form>
     <div class="box1">
-        <a href="/note-form" class="button" id="create-new-note">Create new note</a>
+        <a href="/0/edit" class="button" id="create-new-note">Create new note</a>
         <button type="submit" name="alternative-style" value="{{alternativeStyle.value}}" id="style-switcher" class="{{alternativeStyle.class}}">Switch style</button>
     </div>
     <div class="box2">
@@ -23,7 +23,7 @@
 
                     <label class="finished"><input type="checkbox" disabled {{finishedChecked}}>Finished</label>
                     <textarea disabled class="description">{{description}}</textarea>
-                    <a href="/note-form" class="edit">Edit</a>
+                    <a href="/0/edit" class="edit">Edit</a>
                 </div>
             </li>
         {{/each}}
