@@ -3,7 +3,7 @@ const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
-const notes = require('./routes/notes');
+const notes = require('./routes/notes-route');
 
 const app = express();
 

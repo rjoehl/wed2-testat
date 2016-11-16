@@ -1,4 +1,4 @@
-const retrieveNotes = require('../services/notes');
+const retrieveNotes = require('../services/notes-store');
 
 let isAlternativeStyle = false;
 let sort = {};
