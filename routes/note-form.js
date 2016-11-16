@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const noteFormController = require('../controllers/note-form');
 
-router.get('/', function (req, res, next) {
-    res.render('note-form', {
-        title: 'Edit note'
-    });
-});
+router.get('/', noteFormController);
 
 module.exports = router;
