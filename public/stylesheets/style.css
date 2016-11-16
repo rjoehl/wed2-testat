@@ -13,6 +13,10 @@ ul {
     list-style-type: none;
 }
 
+textarea {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
 button, .button  {
     border: none;
     width: 100%;
