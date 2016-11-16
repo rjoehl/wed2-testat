@@ -1,13 +1,26 @@
 const express = require('express');
 const router = express.Router();
 
+const Params = {
+    ALTERNATIVE_STYLE: 'alternative-style'
+};
+let isAlternativeStyle = false;
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    const isAlternativeStyle = req.query.style === 'alternative';
+    if (req.query.hasOwnProperty(Params.ALTERNATIVE_STYLE)) {
+        const value = req.query[Params.ALTERNATIVE_STYLE];
+        if (value === 'true') {
+            isAlternativeStyle = true;
+        } else if (value === 'false') {
+            isAlternativeStyle = false;
+        }
+    }
+
     res.render('notes', {
         title: 'Notes',
-        style: getStyle(isAlternativeStyle),
-        otherStyle: getStyle(!isAlternativeStyle),
+        style: isAlternativeStyle ? 'alternative' : '',
+        alternativeStyleValue: !isAlternativeStyle,
         notes: [
             {
                 dueSentence: '',
@@ -25,9 +38,5 @@ router.get('/', function (req, res, next) {
         ]
     });
 });
-
-function getStyle(isAlternativeStyle) {
-    return isAlternativeStyle ? 'alternative' : 'standard';
-}
 
 module.exports = router;
