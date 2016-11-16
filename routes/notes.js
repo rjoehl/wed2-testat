@@ -21,7 +21,8 @@ router.get('/', function (req, res, next) {
         title: 'Notes',
         style: isAlternativeStyle ? 'alternative' : '',
         alternativeStyle: {
-            value: !isAlternativeStyle
+            value: !isAlternativeStyle,
+            class: isAlternativeStyle ? 'active' : ''
         },
         notes: [
             {
