@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+let isAlternativeStyle = false;
+
 const Params = {
     ALTERNATIVE_STYLE: 'alternative-style'
 };
-let isAlternativeStyle = false;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
