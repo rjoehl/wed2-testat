@@ -1,3 +1,5 @@
+const retrieveNotes = require('../services/notes');
+
 let isAlternativeStyle = false;
 let sort = {};
 let showFinished = false;
@@ -40,6 +42,8 @@ function notesController(req, res, next) {
         }
     }
 
+    const notes = retrieveNotes();
+
     res.render('notes', {
         title: 'Notes',
         style: isAlternativeStyle ? 'alternative' : 'standard',
@@ -66,21 +70,15 @@ function notesController(req, res, next) {
             class: showFinished ? 'active' : '',
             text: !showFinished ? 'Show finished' : 'Hide finished'
         },
-        notes: [
-            {
-                dueSentence: '',
-                title: 'Einkaufen',
-                importanceStars: '*****',
-                finishedChecked: 'checked',
-                description: 'Pizza\nSchuhe\nSuesses'
-            }, {
-                dueSentence: 'in a month',
-                title: 'Geburt von Sarah',
-                importanceStars: '***',
-                finishedChecked: '',
-                description: 'Anrufen'
-            }
-        ]
+        notes: notes.map(function (note) {
+            return {
+                dueSentence: note.due.toDateString(),
+                title: note.title,
+                importanceStars: '*'.repeat(note.importance),
+                finishedChecked: note.finished ? 'checked' : '',
+                description: note.description
+            };
+        })
     });
 }
 
