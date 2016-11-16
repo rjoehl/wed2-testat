@@ -20,7 +20,9 @@ router.get('/', function (req, res, next) {
     res.render('notes', {
         title: 'Notes',
         style: isAlternativeStyle ? 'alternative' : '',
-        alternativeStyleValue: !isAlternativeStyle,
+        alternativeStyle: {
+            value: !isAlternativeStyle
+        },
         notes: [
             {
                 dueSentence: '',
