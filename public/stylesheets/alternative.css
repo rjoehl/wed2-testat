@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+    color: white;
+}
+a {
+    color: white;
+}
+textarea {
+    color: blueviolet;
+}
+button, .button {
+    background-color: blueviolet;
+    color: white;
+}
+.edit {
+    background-color: blueviolet;
+}

@@ -1,0 +1,16 @@
+body {
+    background-color: #008080;
+}
+a {
+    color: black;
+}
+textarea {
+    color: black;
+}
+button, .button {
+    background-color: aliceblue;
+    color: black;
+}
+.edit {
+    background-color: aliceblue;
+}
