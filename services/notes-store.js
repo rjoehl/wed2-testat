@@ -1,19 +1,24 @@
-function retrieveNotes() {
-    return [
-        {
-            title: 'Einkaufen',
-            description: 'Pizza\nSchuhe\nSuesses',
-            importance: 5,
-            due: new Date(2016, 11, 12),
-            finished: true
-        }, {
-            title: 'Geburt von Sarah',
-            description: 'Anrufen',
-            importance: 3,
-            due: new Date(2016, 11, 19),
-            finished: false
-        }
-    ];
-}
+const Datastore = require('nedb');
+const db = new Datastore({ filename: './data/notes.db', autoload: true });
 
-module.exports = retrieveNotes;
+const notesStore = {
+    query(callback) {
+        db.find({}, function (err, docs) {
+            callback(err, docs);
+        });
+    },
+    get(id, callback) {
+        db.findOne({ _id: id }, function (err, doc) {
+            callback(err, doc);
+        });
+    },
+    save(note) {
+        if ('_id' in note) {
+            db.update({ _id: note._id }, note);
+        } else {
+            db.insert(note);
+        }
+    }
+};
+
+module.exports = notesStore;

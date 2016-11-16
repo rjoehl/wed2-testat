@@ -1,4 +1,4 @@
-const retrieveNotes = require('../services/notes-store');
+const notesStore = require('../services/notes-store');
 
 let isAlternativeStyle = false;
 let sort = {};
@@ -42,43 +42,43 @@ function notesController(req, res, next) {
         }
     }
 
-    const notes = retrieveNotes();
-
-    res.render('notes', {
-        title: 'Notes',
-        style: isAlternativeStyle ? 'alternative' : 'standard',
-        alternativeStyle: {
-            value: !isAlternativeStyle,
-            class: isAlternativeStyle ? 'active' : ''
-        },
-        orderBy: {
-            finish: {
-                value: 'finish-' + (sort.order === 'asc' ? 'desc' : 'asc'),
-                class: sort.by === 'finish' ? 'active' : ''
+    notesStore.query(function (err, notes) {
+        res.render('notes', {
+            title: 'Notes',
+            style: isAlternativeStyle ? 'alternative' : 'standard',
+            alternativeStyle: {
+                value: !isAlternativeStyle,
+                class: isAlternativeStyle ? 'active' : ''
             },
-            created: {
-                value: 'created-' + (sort.order === 'asc' ? 'desc' : 'asc'),
-                class: sort.by === 'created' ? 'active' : ''
+            orderBy: {
+                finish: {
+                    value: 'finish-' + (sort.order === 'asc' ? 'desc' : 'asc'),
+                    class: sort.by === 'finish' ? 'active' : ''
+                },
+                created: {
+                    value: 'created-' + (sort.order === 'asc' ? 'desc' : 'asc'),
+                    class: sort.by === 'created' ? 'active' : ''
+                },
+                importance: {
+                    value: 'importance-' + (sort.order === 'asc' ? 'desc' : 'asc'),
+                    class: sort.by === 'importance' ? 'active' : ''
+                }
             },
-            importance: {
-                value: 'importance-' + (sort.order === 'asc' ? 'desc' : 'asc'),
-                class: sort.by === 'importance' ? 'active' : ''
-            }
-        },
-        showFinished: {
-            value: !showFinished,
-            class: showFinished ? 'active' : '',
-            text: !showFinished ? 'Show finished' : 'Hide finished'
-        },
-        notes: notes.map(function (note) {
-            return {
-                dueSentence: note.due.toDateString(),
-                title: note.title,
-                importanceStars: '*'.repeat(note.importance),
-                finishedChecked: note.finished ? 'checked' : '',
-                description: note.description
-            };
-        })
+            showFinished: {
+                value: !showFinished,
+                class: showFinished ? 'active' : '',
+                text: !showFinished ? 'Show finished' : 'Hide finished'
+            },
+            notes: notes.map(function (note) {
+                return {
+                    dueSentence: note.due.toDateString(),
+                    title: note.title,
+                    importanceStars: '*'.repeat(parseInt(note.importance, 10)),
+                    finishedChecked: note.finished ? 'checked' : '',
+                    description: note.description
+                };
+            })
+        });
     });
 }
 
