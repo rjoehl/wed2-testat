@@ -226,6 +226,10 @@ button, .button {
     #title_label, #title, #description, #desc_label, #imp_label, #importance, #due, #due_label {
         flex-basis: 100%;
     }
+    #description {
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
 
     #finished {
         margin-left: 0;
