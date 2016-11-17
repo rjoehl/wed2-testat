@@ -7,5 +7,6 @@ router.get('/', notesController);
 router.get('/new', noteFormController);
 router.post('/new', noteFormController);
 router.get('/:noteId/edit', noteFormController);
+router.post('/:noteId/edit', noteFormController);
 
 module.exports = router;

@@ -1,19 +1,21 @@
 <h1>{{title}}</h1>
-<form method="post">
-    <div class="newnote_box">
-    <label for="title" id="title_label">Title</label>
-    <input type="text" name="title" id="title">
-    <label for="description" id="desc_label">Description</label>
-    <input type="text" name="description" id="description">
-    <label for="importance" id="imp_label">Importance</label>
-    <input type="range" name="importance" id="importance" min="1" max="5">
-    <label for="due" id="due_label">Due</label>
-    <input type="date" name="due" id="due">
-    </div>
-    <label id="finished"><input type="checkbox" name="finished">Finished</label>
+{{#with note}}
+    <form method="post">
+        <div class="newnote_box">
+        <label for="title" id="title_label">Title</label>
+        <input type="text" name="title" value="{{title}}" id="title">
+        <label for="description" id="desc_label">Description</label>
+        <input type="text" name="description" value="{{description}}" id="description">
+        <label for="importance" id="imp_label">Importance</label>
+        <input type="range" name="importance" value="{{importance}}" id="importance" min="1" max="5">
+        <label for="due" id="due_label">Due</label>
+        <input type="date" name="due" value="{{due}}" id="due">
+        </div>
+        <label id="finished"><input type="checkbox" name="finished" {{finishedChecked}}>Finished</label>
 
-    <div id="submit_buttons">
-    <button type="submit" id="save">Save</button>
-    <a href="/" class="button" id="cancel">Cancel</a>
-    </div>
-</form>
+        <div id="submit_buttons">
+        <button type="submit" id="save">Save</button>
+        <a href="/" class="button" id="cancel">Cancel</a>
+        </div>
+    </form>
+{{/with}}

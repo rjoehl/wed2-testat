@@ -13,7 +13,7 @@ const notesStore = {
         });
     },
     save(note) {
-        if ('_id' in note) {
+        if (note._id != null) {
             db.update({ _id: note._id }, note);
         } else {
             db.insert(note);
