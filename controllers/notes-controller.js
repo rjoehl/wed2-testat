@@ -80,7 +80,7 @@ function notesController(req, res, next) {
             },
             notes: notes.map(function (note) {
                 return {
-                    due: note.due.toDateString(),
+                    due: note.due ? note.due.toDateString() : 'Someday',
                     title: note.title,
                     importanceStars: '*'.repeat(parseInt(note.importance, 10)),
                     finishedChecked: note.finished ? 'checked' : '',
