@@ -2,8 +2,16 @@ const Datastore = require('nedb');
 const db = new Datastore({ filename: './data/notes.db', autoload: true });
 
 const notesStore = {
-    query(callback) {
-        db.find({}, function (err, docs) {
+    query({ showFinished = false, sort = {} }, callback) {
+        const query = {};
+        if (!showFinished) {
+            query.$not = {finished: true}
+        }
+        let result = db.find(query);
+        if ('by' in sort) {
+             result = result.sort({ [sort.by]: sort.order === 'desc' ? -1 : 1 });
+        }
+        result.exec(function (err, docs) {
             callback(err, docs);
         });
     },
