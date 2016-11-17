@@ -23,6 +23,10 @@ const noteFormController = {
     },
     getEditNoteForm(req, res, next) {
         notesStore.get(req.params.noteId, function (err, note) {
+            if (note == null) {
+                res.redirect('/');
+                return;
+            }
             res.render('note-form', {
                 title: 'Edit note',
                 note: Object.assign(note, {
