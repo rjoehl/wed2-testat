@@ -75,7 +75,8 @@ function notesController(req, res, next) {
                     title: note.title,
                     importanceStars: '*'.repeat(parseInt(note.importance, 10)),
                     finishedChecked: note.finished ? 'checked' : '',
-                    description: note.description
+                    description: note.description,
+                    id: note._id
                 };
             })
         });
