@@ -7,11 +7,11 @@ const notesStore = {
         if (!showFinished) {
             query.$not = {finished: true}
         }
-        let result = db.find(query);
+        let cursor = db.find(query);
         if ('by' in sort) {
-            result = result.sort({[sort.by]: sort.order === 'desc' ? -1 : 1});
+            cursor.sort({[sort.by]: sort.order === 'desc' ? -1 : 1});
         }
-        result.exec(function (err, docs) {
+        cursor.exec(function (err, docs) {
             callback(err, docs);
         });
     },
