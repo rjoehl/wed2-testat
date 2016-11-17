@@ -55,10 +55,7 @@ function notesController(req, res, next) {
         res.render('notes', {
             title: 'Notes',
             style: isAlternativeStyle ? 'alternative' : 'standard',
-            alternativeStyle: {
-                value: !isAlternativeStyle,
-                class: isAlternativeStyle ? 'active' : ''
-            },
+            alternativeStyleValue: !isAlternativeStyle,
             orderBy: {
                 finish: {
                     value: 'finish-' + (sort.order === 'asc' ? 'desc' : 'asc'),
@@ -79,14 +76,11 @@ function notesController(req, res, next) {
                 text: !showFinished ? 'Show finished' : 'Hide finished'
             },
             notes: notes.map(function (note) {
-                return {
-                    due: note.due ? note.due.toDateString() : 'Someday',
-                    title: note.title,
+                return Object.assign(note, {
+                    due: note.due != null ? note.due.toDateString() : 'Someday',
                     importanceStars: '*'.repeat(parseInt(note.importance, 10)),
-                    finishedChecked: note.finished ? 'checked' : '',
-                    description: note.description,
-                    id: note._id
-                };
+                    finishedChecked: note.finished ? 'checked' : ''
+                });
             })
         });
     });

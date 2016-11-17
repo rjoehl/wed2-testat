@@ -1,6 +1,6 @@
 body {
     padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px Arial;
 }
 
 a {
@@ -12,7 +12,7 @@ ul {
 }
 
 textarea {
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px Arial;
 }
 
 button, .button {
@@ -116,6 +116,7 @@ button, .button {
     flex: 1;
     flex-basis: 80%;
     margin-bottom: 1rem;
+    font: 14px Arial;
 }
 
 #desc_label {
@@ -147,6 +148,7 @@ button, .button {
 #due {
     flex: 1;
     flex-basis: 80%;
+    font: 14px Arial;
 }
 
 #finished {
@@ -169,6 +171,7 @@ button, .button {
     flex: 1;
     flex-basis: 45%;
 }
+
 
 @media (max-width: 767px) {
     #by-finish-date {

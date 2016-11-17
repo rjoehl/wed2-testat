@@ -1,6 +1,6 @@
 <h1>{{title}}</h1>
-{{#with note}}
-    <form method="post">
+<form method="post">
+    {{#with note}}
         <div class="newnote_box">
             <label for="title" id="title_label">Title</label>
             <input type="text" name="title" value="{{title}}" id="title" required>
@@ -12,10 +12,10 @@
             <input type="date" name="due" value="{{due}}" id="due">
         </div>
         <label id="finished"><input type="checkbox" name="finished" {{finishedChecked}}>Finished</label>
-
-        <div id="submit_buttons">
-            <button type="submit" id="save">Save</button>
-            <a href="/" class="button" id="cancel">Cancel</a>
-        </div>
-    </form>
-{{/with}}
+        <input type="hidden" name="created" value="{{created}}">
+    {{/with}}
+    <div id="submit_buttons">
+        <button type="submit" id="save">{{saveText}}</button>
+        <a href="/" class="button" id="cancel">Cancel</a>
+    </div>
+</form>

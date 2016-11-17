@@ -19,3 +19,6 @@ button, .button {
 .edit {
     background-color: blueviolet;
 }
+.active {
+    background-color: orangered;
+}

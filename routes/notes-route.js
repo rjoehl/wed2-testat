@@ -4,9 +4,9 @@ const notesController = require('../controllers/notes-controller');
 const noteFormController = require('../controllers/note-form-controller');
 
 router.get('/', notesController);
-router.get('/new', noteFormController);
-router.post('/new', noteFormController);
-router.get('/:noteId/edit', noteFormController);
-router.post('/:noteId/edit', noteFormController);
+router.get('/new', noteFormController.getNewNoteForm);
+router.post('/new', noteFormController.createNote);
+router.get('/:noteId/edit', noteFormController.getEditNoteForm);
+router.post('/:noteId/edit', noteFormController.editNote);
 
 module.exports = router;

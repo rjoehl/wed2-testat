@@ -1,19 +1,19 @@
 <form>
     <div class="box1">
         <a href="/new" class="button" id="create-new-note">Create new note</a>
-        <button type="submit" name="alternative-style" value="{{alternativeStyle.value}}" id="style-switcher"
-                class="{{alternativeStyle.class}}">Switch style
+        <button type="submit" name="alternative-style" value="{{alternativeStyleValue}}" id="style-switcher">Switch
+            style
         </button>
     </div>
     <div class="box2">
         <button type="submit" name="order-by" value="{{orderBy.finish.value}}" id="by-finish-date"
-                class="{{orderByImportance.class}}">By finish date
+                class="{{orderBy.finish.class}}">By finish date
         </button>
         <button type="submit" name="order-by" value="{{orderBy.created.value}}" id="by-created-date"
-                class="{{orderByImportance.class}}">By created date
+                class="{{orderBy.created.class}}">By created date
         </button>
         <button type="submit" name="order-by" value="{{orderBy.importance.value}}" id="by-importance"
-                class="{{orderByImportance.class}}">By importance
+                class="{{orderBy.importance.class}}">By importance
         </button>
 
         <button type="submit" name="show-finished" value="{{showFinished.value}}" id="show-finished"
@@ -32,7 +32,7 @@
 
                     <label class="finished"><input type="checkbox" disabled {{finishedChecked}}>Finished</label>
                     <textarea disabled class="description">{{description}}</textarea>
-                    <a href="/{{id}}/edit" class="edit">Edit</a>
+                    <a href="/{{_id}}/edit" class="edit">Edit</a>
                 </div>
             </li>
         {{/each}}
