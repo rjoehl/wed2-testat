@@ -109,16 +109,18 @@ button, .button {
 #title_label {
     flex: 1;
     flex-basis: 15%;
+    margin-bottom: 1rem;
 }
 
 #title {
     flex: 1;
     flex-basis: 80%;
+    margin-bottom: 1rem;
 }
 
 #desc_label {
     flex: 1;
-    flex-basis: 15%;
+    flex-basis: 15.3%;
 }
 
 #description {
@@ -152,6 +154,7 @@ button, .button {
 }
 
 #submit_buttons {
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
 }
