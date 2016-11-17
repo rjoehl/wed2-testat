@@ -1,9 +1,5 @@
 const notesStore = require('../services/notes-store');
 
-let isAlternativeStyle = false;
-let sort = {};
-let showFinished = false;
-
 const Params = {
     ALTERNATIVE_STYLE: 'alternative-style',
     ORDER_BY: 'order-by',
@@ -11,36 +7,49 @@ const Params = {
 };
 
 function notesController(req, res, next) {
+    const sess = req.session;
     if (req.query.hasOwnProperty(Params.ALTERNATIVE_STYLE)) {
         const value = req.query[Params.ALTERNATIVE_STYLE];
         if (value === 'true') {
-            isAlternativeStyle = true;
+            sess.isAlternativeStyle = true;
         } else if (value === 'false') {
-            isAlternativeStyle = false;
+            sess.isAlternativeStyle = false;
         }
     }
+    if (sess.isAlternativeStyle == null) {
+        sess.isAlternativeStyle = false;
+    }
+    const isAlternativeStyle = sess.isAlternativeStyle;
 
     if (req.query.hasOwnProperty(Params.ORDER_BY)) {
         const value = req.query[Params.ORDER_BY];
         const [attribute, order] = value.split('-');
         if (attribute === 'finish' || attribute === 'created' || attribute === 'importance') {
             if (order === 'asc' || order == 'desc') {
-                sort = {
+                sess.sort = {
                     by: attribute,
                     order: order
                 };
             }
         }
     }
+    if (sess.sort == null) {
+        sess.sort = {};
+    }
+    const sort = sess.sort;
 
     if (req.query.hasOwnProperty(Params.SHOW_FINISHED)) {
         const value = req.query[Params.SHOW_FINISHED];
         if (value === 'true') {
-            showFinished = true;
+            sess.showFinished = true;
         } else if (value === 'false') {
-            showFinished = false;
+            sess.showFinished = false;
         }
     }
+    if (sess.showFinished == null) {
+        sess.showFinished = false;
+    }
+    const showFinished = sess.showFinished;
 
     notesStore.query({ showFinished, sort }, function (err, notes) {
         res.render('notes', {
