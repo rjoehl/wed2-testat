@@ -51,7 +51,7 @@ function notesController(req, res, next) {
     }
     const showFinished = sess.showFinished;
 
-    notesStore.query({ showFinished, sort }, function (err, notes) {
+    notesStore.query({showFinished, sort}, function (err, notes) {
         res.render('notes', {
             title: 'Notes',
             style: isAlternativeStyle ? 'alternative' : 'standard',

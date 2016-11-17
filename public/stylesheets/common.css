@@ -15,7 +15,7 @@ textarea {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-button, .button  {
+button, .button {
     border: none;
     width: 100%;
     padding: 10px 10px;
@@ -105,46 +105,57 @@ button, .button  {
     flex-wrap: wrap;
     justify-content: space-between;
 }
-#title_label{
+
+#title_label {
     flex: 1;
     flex-basis: 15%;
 }
+
 #title {
     flex: 1;
     flex-basis: 80%;
 }
-#desc_label{
+
+#desc_label {
     flex: 1;
     flex-basis: 15%;
 }
-#description{
+
+#description {
     flex: 1;
     flex-basis: 80%;
 }
-#imp_label{
+
+#imp_label {
     flex: 1;
     flex-basis: 15%;
 }
+
 #importance {
     flex: 1;
     flex-basis: 80%;
     width: 100%;
 }
-#due_label{
+
+#due_label {
     flex: 1;
     flex-basis: 15%;
 }
-#due{
+
+#due {
     flex: 1;
     flex-basis: 80%;
 }
-#finished{
+
+#finished {
     margin-left: 16.7%;
 }
+
 #submit_buttons {
     display: flex;
     flex-direction: row;
 }
+
 #save {
     flex: 1;
     flex-basis: 45%;
@@ -155,6 +166,7 @@ button, .button  {
     flex: 1;
     flex-basis: 45%;
 }
+
 @media (max-width: 767px) {
     #by-finish-date {
         margin-top: 1rem;
@@ -173,35 +185,43 @@ button, .button  {
         margin-right: 0;
     }
 
-    .due, .title, .importance{
+    .due, .title, .importance {
         flex-basis: 30%;
     }
-    .due{
+
+    .due {
         order: 1;
     }
-    .title{
+
+    .title {
         order: 2;
     }
-    .importance{
+
+    .importance {
         text-align: right;
         order: 3;
     }
-    .finished{
+
+    .finished {
         order: 4;
     }
-    .description{
+
+    .description {
         order: 5;
     }
-    .edit{
+
+    .edit {
         flex-grow: 0;
         padding: 10px 2px;
         flex-basis: 30%;
         order: 6;
     }
+
     #title_label, #title, #description, #desc_label, #imp_label, #importance, #due, #due_label {
         flex-basis: 100%;
     }
-    #finished{
+
+    #finished {
         margin-left: 0;
     }
 }
